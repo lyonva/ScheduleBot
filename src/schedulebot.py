@@ -49,7 +49,17 @@ async def day(ctx):
 # creating new event type
 @bot.command()
 async def event_type(ctx):
-    await create_event_type(ctx, bot)
+
+    channel = await ctx.author.create_dm()
+    print(ctx.author.id)
+    def check(m):
+        return m.content is not None and m.channel == channel and m.author == ctx.author
+
+    await channel.send("First give me the type of your event:")
+    event_name = await bot.wait_for("message", check=check)  # Waits for user input
+    event_name = event_name.content  # Strips message to just the text the user entered
+
+    await create_event_type(ctx, bot, event_name)
 
 # Runs the bot (local machine)
 bot.run(TOKEN)

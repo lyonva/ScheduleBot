@@ -49,9 +49,9 @@ async def find_avaialbleTime(ctx, client):
             event_msg1 = await client.wait_for("message", check=check)  # Waits for user input
             event_msg1 = event_msg.content  # Strips message to just the text the user entered
             if event_msg1 == 'y':
-                create_event_type(ctx,client)
+                create_event_type(ctx,client,event_msg)
             else:
-                await channel.send("You have the entire day for the event of type "+event_msg)
+                await channel.send("You have the entire day available for the event of type "+event_msg)
 
 
     except FileNotFoundError as err:
