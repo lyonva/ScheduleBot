@@ -24,11 +24,11 @@ async def get_highlight(ctx):
     # Initialize variables
     channel = await ctx.author.create_dm()
     event = {'name': '', 'startDate': '', 'startTime': '', 'endDate': '', 'endTime': '', 'type': '', 'desc': ''}
-    events = []
     today = str(datetime.today()).split()[0]
 
     # If there are events in the file
     if len(rows) > 1:
+        events = []
         # For every row in calendar file
         for row in rows[1:]:
             # Get event details
@@ -64,7 +64,7 @@ async def get_highlight(ctx):
             event = {'name': '', 'startDate': '', 'startTime': '', 'endDate': '', 'endTime': '', 'type': '', 'desc': ''}
 
         # If events are on schedule for today
-        if len(events) != 0:
+        if events:
             for e in events:
                 if e['flag'] == 1:
                     await channel.send(f"You have {e['name']} scheduled today, from {e['startTime']} to {e['endTime']}")
@@ -73,7 +73,7 @@ async def get_highlight(ctx):
                 elif e['flag'] == 3:
                     await channel.send(f"You have {e['name']} scheduled today, till {e['endTime']}")
         else:
-            await channel.send("You don't have any event scheduled for today!")    
+            await channel.send("You don't have any event scheduled for today!")
     else:
         await channel.send("Looks like your schedule is empty. You can add events using the '!schedule' command!")
 
@@ -120,15 +120,14 @@ def convert_to_12(time):
         - time string converted to 12 hour format
     """
     if int(time[:2]) > 12:
-        new_time = str(int(time[:2]) - 12) + ":" + time[3:] + " PM"
+        return str(int(time[:2]) - 12) + ":" + time[3:] + " PM"
     elif int(time[:2]) == 0:
-        new_time = "12:" + time[3:] + " AM"
+        return "12:" + time[3:] + " AM"
     elif int(time[:2]) == 12:
-        new_time = time + " PM"
+        return time + " PM"
     elif int(time[:2]) > 9 and int(time[:2]) < 12:
-            new_time = time + " AM"
+        return time + " AM"
     else:
-        new_time = time[1:] + " AM"
-    return new_time
+        return time[1:] + " AM"
 
 # test()
