@@ -89,8 +89,6 @@ async def on_reaction_add(reaction, user):
             await help(user)
         except:
             print(user.name + " (" + user.id + ") does not have DM permissions set correctly")
-            pass
-
 
 @bot.command()
 async def schedule(ctx):

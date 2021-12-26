@@ -86,14 +86,16 @@ def compute_free_time(calendarDates):
     end_week = start_week + timedelta(7)
 
     # adding only the events that are happening today
-    today_events = []
-    for e in calendarDates:
-        if e.start_date.date() == today.date() or e.end_date.date() == today.date():
-            today_events.append(e)
+    today_events = [
+        e
+        for e in calendarDates
+        if e.start_date.date() == today.date()
+        or e.end_date.date() == today.date()
+    ]
 
     # check if the user has no event for today
 
-    if len(today_events) == 0:
+    if not today_events:
         return ('You do not have any event for today')
 
     # sorting today's events

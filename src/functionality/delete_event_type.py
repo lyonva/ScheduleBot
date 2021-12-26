@@ -25,8 +25,7 @@ def delete_type(rows, msg_content):
         else:
             new_row.append(line)
             line_number+=1
-    temp=[new_row, flag, line_number]
-    return temp
+    return [new_row, flag, line_number]
 
 def print_type(calendar_lines):
     """
@@ -47,8 +46,7 @@ def print_type(calendar_lines):
         if len(line) > 0:
             rows.append(line)
             list_types= list_types + "\nEvent Type: " + str(line[0]) + " prefered time range from " + str(line[1]) +" to " +str(line[2])
-    temp1= [rows, str(list_types)]
-    return temp1
+    return [rows, str(list_types)]
 
 
 async def delete_event_type(ctx, client):

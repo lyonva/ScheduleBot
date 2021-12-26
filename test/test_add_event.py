@@ -11,47 +11,43 @@ from functionality.AddEvent import check_complete  # type: ignore
 
 
 def check_variables1():
-    output = {
+    return {
         "start": False,
         "start_date": datetime(2021, 9, 29, 21, 30),
         "end": False,
         "end_date": datetime(2021, 9, 29, 23, 30),
         "array": [],
     }
-    return output
 
 
 def check_variables2():
-    output = {
+    return {
         "start": True,
         "start_date": datetime(2021, 9, 29, 21, 30),
         "end": False,
         "end_date": datetime(2021, 9, 29, 23, 30),
         "array": [],
     }
-    return output
 
 
 def check_variables3():
-    output = {
+    return {
         "start": True,
         "start_date": datetime(2021, 9, 29, 21, 30),
         "end": True,
         "end_date": datetime(2021, 9, 29, 23, 30),
         "array": [],
     }
-    return output
 
 
 def check_variables4():
-    output = {
+    return {
         "start": True,
         "start_date": datetime(2021, 9, 29, 21, 30),
         "end": True,
         "end_date": datetime(2021, 9, 29, 23, 30),
         "array": ["Hello"],
     }
-    return output
 
 
 def test_check():

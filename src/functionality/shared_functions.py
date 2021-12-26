@@ -81,15 +81,13 @@ def turn_types_to_string(user_id):
     Output:
         output - Formatted string of rows in event types file
     """
-    output = ""
     space = [12, 5, 5]
     rows = read_type_file(user_id)
-    line_number = 0
-    for i in rows:
-        if line_number != 0:
-            output += f"{i[0]:<{space[0]}} Preferred range of {i[1]:<{space[1]}} - {i[2]:<{space[2]}}\n"
-        line_number += 1
-    return output
+    return "".join(
+        f"{i[0]:<{space[0]}} Preferred range of {i[1]:<{space[1]}} - {i[2]:<{space[2]}}\n"
+        for line_number, i in enumerate(rows)
+        if line_number != 0
+    )
 
 
 def create_event_directory():
@@ -146,14 +144,7 @@ def read_event_file(user_id):
     # Opens the current user's csv calendar file
     with open(os.path.expanduser("~/Documents") + "/ScheduleBot/Event/" + user_id + ".csv", "r") as calendar_lines:
         calendar_lines = csv.reader(calendar_lines, delimiter=",")
-        rows = []
-
-        # Stores the current row in an array of rows if the row is not a new-line character
-        # This check prevents an accidental empty lines from being kept in the updated file
-        for row in calendar_lines:
-            if len(row) > 0:
-                rows.append(row)
-        return rows
+        return [row for row in calendar_lines if len(row) > 0]
 
 
 def add_event_to_file(user_id, current):
@@ -165,10 +156,10 @@ def add_event_to_file(user_id, current):
         current - Event to be added to calendar
     Output: None
     """
-    line_number = 0
     rows = read_event_file(user_id)
     # If the file already has events
     if len(rows) > 0:
+        line_number = 0
         for i in rows:
 
             # Skips check with empty lines
@@ -203,7 +194,6 @@ def add_event_to_file(user_id, current):
             # Write to column headers and array of rows back to the calendar file
             csvwriter = csv.writer(calendar_file)
             csvwriter.writerows(rows)
-    # If the file has no events, add the current Event to the file
     else:
         with open(
             os.path.expanduser("~/Documents") + "/ScheduleBot/Event/" + user_id + ".csv",

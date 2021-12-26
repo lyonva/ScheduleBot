@@ -15,8 +15,16 @@ def test_EventsAfterMidNight():
 
     # Test case if all of the events are not at midnight
     t = datetime.today()
-    a = []
-    a.append(Event('',datetime(t.year, t.month,t.day , 4 , 0),datetime(t.year, t.month,t.day , 5 , 0) ,'','' ))
+    a = [
+        Event(
+            '',
+            datetime(t.year, t.month, t.day, 4, 0),
+            datetime(t.year, t.month, t.day, 5, 0),
+            '',
+            '',
+        )
+    ]
+
     a.append(Event('',datetime(t.year, t.month,t.day , 1 , 0),datetime(t.year, t.month,t.day , 2 , 0) ,'','' ))
     o = compute_free_time(a)
     ex = 'Free time from 00:00 until 00:59:00\nFree time from 02:01:00 until 03:59:00\nFree time from 05:01:00 until 23:59'
@@ -30,8 +38,16 @@ def test_EventsStartsAtMidNight():
     # Test case if one of the events starts at midnight
 
     t = datetime.today()
-    a = []
-    a.append(Event('',datetime(t.year, t.month,t.day , 4 , 0),datetime(t.year, t.month,t.day , 6 , 0) ,'','' ))
+    a = [
+        Event(
+            '',
+            datetime(t.year, t.month, t.day, 4, 0),
+            datetime(t.year, t.month, t.day, 6, 0),
+            '',
+            '',
+        )
+    ]
+
     a.append(Event('',datetime(t.year, t.month,t.day , 7 , 0),datetime(t.year, t.month,t.day , 17 , 0) ,'','' ))
     a.append(Event('',datetime(t.year, t.month,t.day , 0 , 0),datetime(t.year, t.month,t.day , 2 , 0) ,'','' ))
     o = compute_free_time(a)
@@ -44,8 +60,16 @@ def test_EventsEndsAtMidNight():
     # Test case if one of the events ends at midnight
 
     t = datetime.today()
-    a = []
-    a.append(Event('',datetime(t.year, t.month,t.day , 14 , 0),datetime(t.year, t.month,t.day , 16 , 0) ,'','' ))
+    a = [
+        Event(
+            '',
+            datetime(t.year, t.month, t.day, 14, 0),
+            datetime(t.year, t.month, t.day, 16, 0),
+            '',
+            '',
+        )
+    ]
+
     a.append(Event('',datetime(t.year, t.month,t.day , 17 , 0),datetime(t.year, t.month,t.day , 23 , 59) ,'','' ))
     a.append(Event('',datetime(t.year, t.month,t.day , 0 , 0),datetime(t.year, t.month,t.day , 2 , 0) ,'','' ))
     o = compute_free_time(a)

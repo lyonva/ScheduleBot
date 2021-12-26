@@ -31,14 +31,13 @@ class event_type:
         Output:
             A formatted string that represents all the information about an type instance
         """
-        output = (
+        return (
             self.event_name 
             + " "
             + str(self.start_time)
             + " "
             + str(self.end_time)
         )
-        return output
     
     def get_start_time(self):
         """
@@ -79,5 +78,4 @@ class event_type:
         Output:
             array - A list with each index being an attribute of the self event_type object
         """
-        array = [self.event_name, self.get_start_time(), self.get_end_time()]
-        return array
+        return [self.event_name, self.get_start_time(), self.get_end_time()]
