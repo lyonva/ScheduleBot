@@ -46,24 +46,21 @@ def period_to_string(date1, date2):
     s = ""
     for d in [date1, date2]:
         # 50% chance of military or 12 hour
-        if randint(0, 1) == 0:
-            s += to_military(d)
-        else:
-            s += to_12hour(d)
+        s += to_military(d) if randint(0, 1) == 0 else to_12hour(d)
         s += " "
     return s
 
 # Test correct date times
 def test_correct():
     # Do this test 1000 times
-    for i in range(NUM_ITER):
+    for _ in range(NUM_ITER):
         # Pick 2 random dates
         date1 = random_datetime()
         date2 = random_datetime()
         date1, date2 = min(date1, date2), max(date1, date2)
 
         s = period_to_string(date1, date2)
-        
+
         # Parse input
         # No try, we know input should be correct
         res_date1, res_date2 = parse_period(s)
@@ -75,7 +72,7 @@ def test_correct():
 # i.e. start date is AFTER ending
 def test_swapped():
     # Do this test 1000 times
-    for i in range(NUM_ITER):
+    for _ in range(NUM_ITER):
         # Pick 2 random dates
         date1 = random_datetime()
         date2 = random_datetime()
@@ -131,13 +128,12 @@ def test_impossible():
 # Generate random noise
 # Random text generation from https://stackoverflow.com/questions/2257441/random-string-generation-with-upper-case-letters-and-digits
 def gibberish():
-    text = ''.join(choices(string.ascii_uppercase + string.ascii_letters + " /:"
+    return ''.join(choices(string.ascii_uppercase + string.ascii_letters + " /:"
         , k=randint(0, 62)))
-    return text
 
 # Just test random input
 def test_gibberish():
-    for i in range(NUM_ITER):
+    for _ in range(NUM_ITER):
         s = gibberish()
 
         # It should fail, throw if it does pass
