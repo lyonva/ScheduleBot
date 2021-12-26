@@ -67,12 +67,12 @@ class _PeriodTree(Transformer):
         h = t[0]
         m = t[1]
         if len(t) == 3:
-            if not( 1 <= h and h <= 12 ):
+            if h < 1 or h > 12:
                 raise Exception("you entered the time incorrectly")
             h %= 12
             if t[2].upper() == "PM":
                 h += 12
-        if not( 0 <= h and h <= 23 and 0 <= m and m <= 59 ):
+        if h < 0 or h > 23 or m < 0 or m > 59:
             raise Exception("you entered the time incorrectly")
         return [h, m]
     
@@ -82,7 +82,7 @@ class _PeriodTree(Transformer):
         y = t[2]
         if len(str(y)) == 2:
             y = int("20" + str(y))
-        if not( 1 <= m and m <= 12 and 1 <= d and d <= 31 ):
+        if m < 1 or m > 12 or d < 1 or d > 31:
             raise Exception("you entered the date incorrectly")
         return [m, d, y]
     
