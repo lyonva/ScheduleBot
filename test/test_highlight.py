@@ -39,7 +39,7 @@ def random_date(start=2020, end=2025):
 def test_start_and_end():
 
     # Iterate test NUM_ITER times
-    for i in range(NUM_ITER):
+    for _ in range(NUM_ITER):
         # pick a random date
         day1 = random_date()
         # ending date is the same
@@ -47,14 +47,14 @@ def test_start_and_end():
 
         # for testing porpose, assume today is the same day
         today = day1
-        assert check_start_or_end([day1, day2], today) == 1
+        assert check_start_or_end([today, day2], today) == 1
 
 
 # Test if event starts today but ends later
 def test_ends_later():
 
     # Iterate test NUM_ITER times
-    for i in range(NUM_ITER):
+    for _ in range(NUM_ITER):
         # Pick two random dates
         day1 = ""
         day2 = ""
@@ -68,15 +68,15 @@ def test_ends_later():
 
         # For testing, assume today is the first day
         today = day1
-        print(str(day1) + " " + str(day2) + " " + str(today))
-        assert check_start_or_end([day1, day2], today) == 2
+        print(str(today) + " " + str(day2) + " " + str(today))
+        assert check_start_or_end([today, day2], today) == 2
 
 
 # Test if event started on an earlier date but ends today
 def test_started_earlier():
 
     # Iterate test NUM_ITER times
-    for i in range(NUM_ITER):
+    for _ in range(NUM_ITER):
         # pick two random dates
         day1 = ""
         day2 = ""
@@ -90,14 +90,14 @@ def test_started_earlier():
         # for testing, assume day 2 is today
         today = day2
 
-        assert check_start_or_end([day1, day2], today) == 3
+        assert check_start_or_end([day1, today], today) == 3
 
 
 # Test if no event is scheduled for today
 def test_no_event():
 
     # Iterate test NUM_ITER times
-    for i in range(NUM_ITER):
+    for _ in range(NUM_ITER):
         # pick two random dates
         day1 = ""
         day2 = ""
@@ -140,7 +140,7 @@ def to_12hour(d):
 def test_time_conversion():
     
     # Iterate test NUM_ITER times
-    for i in range(NUM_ITER):
+    for _ in range(NUM_ITER):
         # get random time
         time = random_time()
 
