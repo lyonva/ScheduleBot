@@ -36,7 +36,7 @@ class Event:
         Output:
             A formatted string that represents all the information about an Event instance
         """
-        output = (
+        return (
             self.name
             + " "
             + str(self.start_date)
@@ -47,7 +47,6 @@ class Event:
             + " "
             + self.description
         )
-        return output
 
     
 
@@ -149,5 +148,10 @@ class Event:
         Output:
             array - A list with each index being an attribute of the self Event object
         """
-        array = [self.name, str(self.start_date), str(self.end_date), self.event_type, self.description]
-        return array
+        return [
+            self.name,
+            str(self.start_date),
+            str(self.end_date),
+            self.event_type,
+            self.description,
+        ]
