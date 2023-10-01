@@ -19,6 +19,8 @@ ScheduleBot is a Python application that helps you calendarize events and work t
 
 With ScheduleBot you can quickly schedule events, state your prefered times for certain types of activities (exercise, homework, meetings, etc.) and quickly find out which times you have available to do more stuff.
 
+ScheduleBot is perfect for students, especially those who do a lot of their collabroation through Discord. This bot allows you to keep more information all in one place and minimize having to use an external tool just for scheduling your day-to-day activites.
+
 ![Setup](docs/img/Startup.gif)
 
 ## Getting started
@@ -45,10 +47,10 @@ The bot will ask you the details of your new event.
 
 As you can see, following the intitial prompt to the bot, it will ask about the following information:
 
-- 1. The name of your event.
-- 2. The start and end dates of your event.
-- 3. The type of your event. It is also worth noting that you can edit the list of event types that the bot knows.
-- 4. The description of your event. This information is optional. If you do not have a description to add to your event, you can simply put:
+- The name of your event.
+- The start and end dates of your event.
+- The type of your event. It is also worth noting that you can edit the list of event types that the bot knows (take a look at the "I don't really want to work at 3.a.m." section below for more details).
+- The description of your event. This information is optional. If you do not have a description to add to your event, you can simply put:
 
 ```
 !done
@@ -78,9 +80,9 @@ The bot will ask you for the name of the type and your preferred times.
 
 ![Type Create](docs/img/Type%20Create.gif)
 
-## Documentation
+## Additional Documentation
 
-- [Online Documentation](https://lyonva.github.io/ScheduleBot/)
+- [Additional Documentation](https://lyonva.github.io/ScheduleBot/)
 
 ## Getting involved
 
