@@ -43,6 +43,17 @@ The bot will ask you the details of your new event.
 
 ![Schedule](docs/img/Schedule.gif)
 
+As you can see, following the intitial prompt to the bot, it will ask about the following information:
+
+- 1. The name of your event.
+- 2. The start and end dates of your event.
+- 3. The type of your event. It is also worth noting that you can edit the list of event types that the bot knows.
+- 4. The description of your event. This information is optional. If you do not have a description to add to your event, you can simply put:
+
+```
+!done
+```
+
 ### **I forgot my agenda for the day**
 
 You can take a look at your events scheduled for the day with the command:
@@ -66,12 +77,6 @@ You can create custom event types to further organize your schedule. You can def
 The bot will ask you for the name of the type and your preferred times.
 
 ![Type Create](docs/img/Type%20Create.gif)
-
-
-## Releases
-
--   [All releases](https://github.com/lyonva/ScheduleBot/releases)
--   Latest: [v0](https://github.com/lyonva/ScheduleBot/releases/tag/v0)
 
 ## Documentation
 
@@ -124,3 +129,8 @@ It will find and schedule the first available X contiguous hours, on your prefer
 \[Screenshot\]
 
 \[Add more future functionality\]
+
+## Releases
+
+-   [All releases](https://github.com/lyonva/ScheduleBot/releases)
+-   Latest: [v0](https://github.com/lyonva/ScheduleBot/releases/tag/v0)
