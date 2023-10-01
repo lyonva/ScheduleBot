@@ -15,9 +15,11 @@
 
 > Don't let the fear of the time it will take to accomplish something stand in the way of your doing it. The time will pass anyway; we might just as well put that passing time to the best possible use. - Earl Nightingale
 
-ScheduleBot is a Python application that helps you calendarize events and work through a Discord bot. Want to try it out? ~~[Invite the bot into a server](https://discord.com/api/oauth2/authorize?client_id=884865269867102249&permissions=534723951680&scope=bot), and afterward you can DM the bot. (To be implemented in the future)~~ Join the [ScheduleBot server](https://discord.gg/xRaact5GmH) and DM the bot.
+ScheduleBot is a Python application that helps you calendarize events and work through a Discord bot. Want to try it out? Join the [ScheduleBot server](https://discord.gg/xRaact5GmH) and DM the bot.
 
 With ScheduleBot you can quickly schedule events, state your prefered times for certain types of activities (exercise, homework, meetings, etc.) and quickly find out which times you have available to do more stuff.
+
+ScheduleBot is perfect for students, especially those who do a lot of their collabroation through Discord. This bot allows you to keep more information all in one place and minimize having to use an external tool just for scheduling your day-to-day activites.
 
 ![Setup](docs/img/Startup.gif)
 
@@ -43,6 +45,17 @@ The bot will ask you the details of your new event.
 
 ![Schedule](docs/img/Schedule.gif)
 
+As you can see, following the intitial prompt to the bot, it will ask about the following information:
+
+- The name of your event.
+- The start and end dates of your event.
+- The type of your event. It is also worth noting that you can edit the list of event types that the bot knows (take a look at the "I don't really want to work at 3.a.m." section below for more details).
+- The description of your event. This information is optional. If you do not have a description to add to your event, you can simply put:
+
+```
+!done
+```
+
 ### **I forgot my agenda for the day**
 
 You can take a look at your events scheduled for the day with the command:
@@ -67,13 +80,9 @@ The bot will ask you for the name of the type and your preferred times.
 
 ![Type Create](docs/img/Type%20Create.gif)
 
+## Additional Documentation
 
-## Releases
-
--   [All releases](https://github.com/lyonva/ScheduleBot/releases)
--   Latest: [v0](https://github.com/lyonva/ScheduleBot/releases/tag/v0)
-
-## Documentation
+- [Additional Documentation](https://lyonva.github.io/ScheduleBot/)
 
 ## Getting involved
 
@@ -122,3 +131,8 @@ It will find and schedule the first available X contiguous hours, on your prefer
 \[Screenshot\]
 
 \[Add more future functionality\]
+
+## Releases
+
+-   [All releases](https://github.com/lyonva/ScheduleBot/releases)
+-   Latest: [v0](https://github.com/lyonva/ScheduleBot/releases/tag/v0)
